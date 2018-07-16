@@ -5,7 +5,7 @@ import { changeCurrentChannel } from "../store";
 
 class MessageList extends Component {
   componentDidMount() {
-    // this.props.changeChannel(this.props.channel.name);
+    this.props.changeChannel(this.props.channel.name);
   }
 
   componentWillReceiveProps(nextProps) {
