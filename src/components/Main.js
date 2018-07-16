@@ -1,17 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import store, { fetchChannels, fetchMessages } from "../store";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { fetchChannels, fetchMessages } from "../store";
+import { withRouter, Switch, Route, Redirect } from "react-router-dom";
 import { Sidebar, Navbar, MessageList } from "../components";
 
-export default class Main extends Component {
+class Main extends Component {
   componentDidMount() {
-    const messagesThunk = fetchMessages();
-    const channelsThunk = fetchChannels();
-    store.dispatch(messagesThunk);
-    store.dispatch(channelsThunk);
-    // this.props.fetchAllChannels();
-    // this.props.fetchAllMessages();
+    this.props.fetchAllChannels();
+    this.props.fetchAllMessages();
   }
 
   render() {
@@ -30,25 +26,27 @@ export default class Main extends Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     channels: state.channels,
-//     messages: state.messages
-//   };
-// };
+const mapStateToProps = state => {
+  return {
+    channels: state.channels,
+    messages: state.messages
+  };
+};
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     fetchAllChannels: () => {
-//       return dispatch(fetchChannels());
-//     },
-//     fetchAllMessages: () => {
-//       return dispatch(fetchMessages());
-//     }
-//   };
-// };
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchAllChannels: () => {
+      return dispatch(fetchChannels());
+    },
+    fetchAllMessages: () => {
+      return dispatch(fetchMessages());
+    }
+  };
+};
 
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(Main);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Main)
+);

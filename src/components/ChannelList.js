@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { withRouter, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function ChannelList(props) {
   const { channels, messages } = props;
@@ -34,4 +34,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default withRouter(connect(mapStateToProps)(ChannelList));
+export default connect(mapStateToProps)(ChannelList);
