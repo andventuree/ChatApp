@@ -10,12 +10,14 @@ router.get("/", (req, res, next) => {
 
 // POST /api/messages
 router.post("/", (req, res, next) => {
-  User.findOrCreate({
+  User.findOne({
+    //findOrCreate
     where: {
-      name: req.body.name || "Default Name: Finn"
+      username: "andrew" //req.body.name ||
     }
   })
     .spread(user => {
+      console.log("user: ", user);
       const message = Message.build(req.body);
       message.setUser(user, { save: false });
 
@@ -31,13 +33,14 @@ router.post("/", (req, res, next) => {
     .catch(next);
 });
 
-// PUT /api/messages
+// PUT /api/messages/:messageId
 router.put("/:messageId", (req, res, next) => {
   Message.findById(req.params.messageId)
     .then(message => message.update(req.body))
     .catch(next);
 });
 
+// DELETE /api/messages/:messageId
 router.delete("/:messageId", (req, res, next) => {
   const id = req.params.messageId;
 

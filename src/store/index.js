@@ -6,8 +6,14 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import channels from "./channels";
 import messages from "./messages";
 import currentChannel from "./currentChannel";
+import newMessage from "./newMessage";
 
-const reducer = combineReducers({ channels, messages, currentChannel });
+const reducer = combineReducers({
+  channels,
+  messages,
+  currentChannel,
+  newMessage
+});
 
 const store = createStore(
   reducer,
@@ -19,3 +25,4 @@ export default store;
 export * from "./channels";
 export * from "./messages";
 export * from "./currentChannel";
+export * from "./newMessage";

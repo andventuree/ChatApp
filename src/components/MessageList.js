@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Message } from "../components";
+import { Message, NewMessageEntry } from "../components";
 import { changeCurrentChannel } from "../store";
 
 class MessageList extends Component {
@@ -17,7 +17,7 @@ class MessageList extends Component {
   }
 
   render() {
-    const { messages } = this.props;
+    const { channelId, messages } = this.props;
     return (
       <div>
         <ul>
@@ -26,6 +26,7 @@ class MessageList extends Component {
             return <Message key={message.id} message={message} />;
           })}
         </ul>
+        <NewMessageEntry channelId={channelId} />
       </div>
     );
   }

@@ -25,18 +25,15 @@ const cartoonProfiles = [
 const users = [
   {
     username: "andrew",
-    image: cartoonProfiles[2],
-    password: "123"
+    image: cartoonProfiles[2]
   },
   {
     username: "zhuling",
-    image: cartoonProfiles[0],
-    password: "123"
+    image: cartoonProfiles[0]
   },
   {
     username: "charlie",
-    image: cartoonProfiles[3],
-    password: "123"
+    image: cartoonProfiles[3]
   }
 ];
 

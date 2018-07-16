@@ -4,3 +4,4 @@ export { default as ChannelList } from "./ChannelList";
 export { default as Navbar } from "./Navbar";
 export { default as MessageList } from "./MessageList";
 export { default as Message } from "./Message";
+export { default as NewMessageEntry } from "./NewMessageEntry";
