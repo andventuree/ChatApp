@@ -1,40 +1,67 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchChannels } from "../store";
+import { fetchChannels, fetchMessages } from "../store";
+import { Switch, Route, Redirect } from "react-router-dom";
+import { Sidebar, Navbar, MessageList } from "../components";
 
 class Main extends Component {
   componentDidMount() {
     this.props.fetchAllChannels();
+    this.props.fetchAllMessages();
   }
 
   render() {
-    console.log(this.props);
     return (
-      <div className="ui inverted segment">
-        <div>Plain text </div>
-        {this.props.channels &&
-          this.props.channels.map(channel => {
-            return (
-              <div>
-                <a># {channel.name}</a>
-              </div>
-            );
-          })}
+      <div>
+        <Sidebar />
+        <Navbar />
+        <main>
+          <Switch>
+            <Route exact path="/" component={Booger} />
+            <Route
+              path="/dogs/:variable"
+              render={({ match }) => {
+                console.log("match: ", match);
+                return <div>{match.params.message}asdfasdfs</div>;
+              }}
+            />
+            <Route path="/channels/:channelId" component={MessageList} />
+            <Redirect to="/channels/1" />
+          </Switch>
+        </main>
       </div>
     );
   }
 }
 
+// const User = ({ match }) => {
+//   return <h1>Hello {match.params.username}!</h1>;
+// };
+
+//removed <Switch> b/c it only shows 1 component at a time,
+function Booger() {
+  return <div>xyz</div>;
+}
+
+function Pooper(props) {
+  console.log(props);
+  return <div>xahhhhhh</div>;
+}
+
 const mapStateToProps = state => {
   return {
-    channels: state.channels
+    channels: state.channels,
+    messages: state.messages
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchAllChannels: function() {
+    fetchAllChannels: () => {
       return dispatch(fetchChannels());
+    },
+    fetchAllMessages: () => {
+      return dispatch(fetchMessages());
     }
   };
 };

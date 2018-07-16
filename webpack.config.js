@@ -1,19 +1,25 @@
-const path = require('path')
+const path = require("path");
 
 module.exports = {
-  entry: './src/index.js',
+  entry: [
+    "@babel/polyfill", // enables async-await
+    "./src/index.js"
+  ],
   output: {
-    path: __dirname + '/public',
-    filename: 'bundle.js'
+    path: __dirname + "/public",
+    filename: "bundle.js"
   },
-  devtool: 'source-map',
+  resolve: {
+    extensions: [".js", ".jsx"]
+  },
+  devtool: "source-map",
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: "babel-loader"
       }
     ]
   }
-}
+};
