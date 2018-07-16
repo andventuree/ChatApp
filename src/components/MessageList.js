@@ -5,12 +5,11 @@ import { changeCurrentChannel } from "../store";
 
 class MessageList extends Component {
   componentDidMount() {
-    // console.log("this.props: ", this.props);
-    this.props.changeChannel(this.props.channel.name);
+    // this.props.changeChannel(this.props.channel.name);
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("nextProps: ", nextProps);
+    //this should update the view to be a different channel
     if (nextProps.channel.name !== this.props.channel.name) {
       this.props.changeChannel(nextProps.channel.name);
     }

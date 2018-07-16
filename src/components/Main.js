@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchChannels, fetchMessages } from "../store";
+import store, { fetchChannels, fetchMessages } from "../store";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { Sidebar, Navbar, MessageList } from "../components";
 
-class Main extends Component {
+export default class Main extends Component {
   componentDidMount() {
-    this.props.fetchAllChannels();
-    this.props.fetchAllMessages();
+    const messagesThunk = fetchMessages();
+    const channelsThunk = fetchChannels();
+    store.dispatch(messagesThunk);
+    store.dispatch(channelsThunk);
+    // this.props.fetchAllChannels();
+    // this.props.fetchAllMessages();
   }
 
   render() {
@@ -17,14 +21,6 @@ class Main extends Component {
         <Navbar />
         <main>
           <Switch>
-            <Route exact path="/" component={Booger} />
-            <Route
-              path="/dogs/:variable"
-              render={({ match }) => {
-                console.log("match: ", match);
-                return <div>{match.params.message}asdfasdfs</div>;
-              }}
-            />
             <Route path="/channels/:channelId" component={MessageList} />
             <Redirect to="/channels/1" />
           </Switch>
@@ -34,39 +30,25 @@ class Main extends Component {
   }
 }
 
-// const User = ({ match }) => {
-//   return <h1>Hello {match.params.username}!</h1>;
+// const mapStateToProps = state => {
+//   return {
+//     channels: state.channels,
+//     messages: state.messages
+//   };
 // };
 
-//removed <Switch> b/c it only shows 1 component at a time,
-function Booger() {
-  return <div>xyz</div>;
-}
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     fetchAllChannels: () => {
+//       return dispatch(fetchChannels());
+//     },
+//     fetchAllMessages: () => {
+//       return dispatch(fetchMessages());
+//     }
+//   };
+// };
 
-function Pooper(props) {
-  console.log(props);
-  return <div>xahhhhhh</div>;
-}
-
-const mapStateToProps = state => {
-  return {
-    channels: state.channels,
-    messages: state.messages
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchAllChannels: () => {
-      return dispatch(fetchChannels());
-    },
-    fetchAllMessages: () => {
-      return dispatch(fetchMessages());
-    }
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Main);
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(Main);

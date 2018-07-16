@@ -3,14 +3,15 @@ import { connect } from "react-redux";
 import { writeMessage, postMessage } from "../store";
 
 function NewMessageEntry(props) {
-  const { name, newMessageEntry, handleChange, handleSubmit } = props;
+  const { username, newMessage, handleChange, handleSubmit } = props;
+
   return (
-    <form onSubmit={event => handleSubmit(name, newMessageEntry, event)}>
+    <form onSubmit={event => handleSubmit(username, newMessage, event)}>
       <div>
         <input
           type="text"
           name="content"
-          value={newMessageEntry}
+          value={newMessage}
           onChange={handleChange}
           placeholder="Type..."
         />
@@ -25,7 +26,7 @@ function NewMessageEntry(props) {
 const mapStateToProps = state => {
   return {
     newMessage: state.newMessage,
-    name: state.name
+    username: state.username
   };
 };
 
@@ -34,11 +35,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     handleChange(event) {
       dispatch(writeMessage(event.target.value));
     },
-    handleSubmit(name, content, event) {
-      //i think we use user name
+    handleSubmit(username, content, event) {
       event.preventDefault();
       const { channelId } = ownProps;
-      dispatch(postMessage({ name, content, channelId }));
+      dispatch(postMessage({ username: "andrew", content, channelId }));
       dispatch(writeMessage(""));
     }
   };

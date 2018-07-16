@@ -21,7 +21,6 @@ app.get("/", (req, res) => {
 app.use("/api", require("./api"));
 
 app.use("*", (req, res, next) => {
-  // res.send("Did not match any other route");
   res.sendFile(path.join(__dirname, "..", "public/index.html"));
 });
 

@@ -3,7 +3,7 @@ const { User } = require("../db/models");
 
 // GET api/users
 router.get("/", (req, res, next) => {
-  console.log("checking out the api/users general rute");
+  console.log("checking out the api/users general route");
   User.findAll()
     .then(users => res.json(users))
     .catch(next);
