@@ -1,5 +1,4 @@
 import axios from "axios";
-//history
 
 const GET_USER = "GET_USER";
 const REMOVE_USER = "REMOVE_USER";

@@ -6,5 +6,9 @@ module.exports = serverWithSocket => {
     socket.on("new-message", message => {
       socket.broadcast.emit("new-message", message);
     });
+
+    socket.on("new-channel", channel => {
+      socket.broadcast.emit("new-channel", channel);
+    });
   });
 };

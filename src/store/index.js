@@ -8,13 +8,15 @@ import messages from "./messages";
 import currentChannel from "./currentChannel";
 import newMessage from "./newMessage";
 import user from "./user";
+import newChannel from "./newChannel";
 
 const reducer = combineReducers({
   channels,
   messages,
   currentChannel,
   newMessage,
-  user
+  user,
+  newChannel
 });
 
 const store = createStore(
@@ -29,3 +31,4 @@ export * from "./messages";
 export * from "./currentChannel";
 export * from "./newMessage";
 export * from "./user";
+export * from "./newChannel";

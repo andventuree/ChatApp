@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchChannels, fetchMessages } from "../store";
-import { Sidebar, Navbar, MessageList } from "../components";
 import { withRouter, Switch, Route, Redirect } from "react-router-dom";
+import { Sidebar, Navbar, MessageList, NewChannelEntry } from "../components";
 import { Grid, Segment } from "semantic-ui-react";
 
 class Main extends Component {
@@ -22,6 +22,7 @@ class Main extends Component {
             <Navbar />
             <main>
               <Switch>
+                <Route path="/new-channel" component={NewChannelEntry} />
                 <Route path="/channels/:channelId" component={MessageList} />
                 <Redirect to="/channels/1" />
               </Switch>

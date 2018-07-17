@@ -27,6 +27,9 @@ function ChannelList(props) {
             </List.Item>
           );
         })}
+        <List.Item>
+          <NavLink to="/new-channel">Create a channel...</NavLink>
+        </List.Item>
       </List>
     </Segment>
   );
