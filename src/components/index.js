@@ -8,4 +8,5 @@ export { default as Message } from "./Message";
 export { default as NewMessageEntry } from "./NewMessageEntry";
 export { default as NewChannelEntry } from "./NewChannelEntry";
 export { default as LogOut } from "./LogOut";
+export { default as TimeStamp } from "./TimeStamp";
 export { Login, Signup } from "./Auth-Form";

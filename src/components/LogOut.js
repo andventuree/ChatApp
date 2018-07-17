@@ -4,7 +4,9 @@ import { logout } from "../store";
 
 function LogOut(props) {
   const { user, handleClick } = props;
-  return <button onClick={() => handleClick(user)}>Log Out </button>;
+  return (
+    <button onClick={() => handleClick(user)}>Log out {user.username}</button>
+  );
 }
 
 const mapStateToProps = state => {
@@ -13,7 +15,7 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = dispatch => {
   return {
     handleClick: function(user) {
       dispatch(logout(user));

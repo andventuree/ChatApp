@@ -8,8 +8,6 @@ router.post("/login", async (req, res, next) => {
     console.log("User not found: ", req.body.username);
     res.status(401).send("User not found, consider signing up");
   } else {
-    // user.lastLogin = new Date(); //should only add change this when a user logs out
-    // console.log(user);
     res.json(user);
   }
 });

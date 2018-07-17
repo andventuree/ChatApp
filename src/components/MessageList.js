@@ -17,13 +17,21 @@ class MessageList extends Component {
   }
 
   render() {
-    const { channelId, messages } = this.props;
+    const { channelId, messages, user } = this.props;
+    let lastLogin = new Date(user.lastLogin).getTime();
     return (
       <div>
         <Segment>
           <List>
             {messages.map(message => {
-              return <Message key={message.id} message={message} />;
+              return (
+                <React.Fragment>
+                  {new Date(message.createdAt).getTime() > lastLogin ? (
+                    <span>----------------------</span>
+                  ) : null}
+                  <Message key={message.id} message={message} />
+                </React.Fragment>
+              );
             })}
           </List>
         </Segment>
@@ -40,7 +48,8 @@ const mapStateToProps = function(state, ownProps) {
       name: ""
     },
     messages: state.messages.filter(message => message.channelId === channelId),
-    channelId
+    channelId,
+    user: state.user
   };
 };
 
