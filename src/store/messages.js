@@ -1,4 +1,5 @@
 import axios from "axios";
+import socket from "../socket";
 
 const GET_MESSAGE = "GET_MESSAGE";
 const GET_MESSAGES = "GET_MESSAGES";
@@ -32,7 +33,7 @@ export const postMessage = message => {
       .then(newMessage => {
         const action = getMessage(newMessage);
         dispatch(action);
-        //will likely need a socket event here
+        socket.emit("new-message", newMessage);
       });
   };
 };
