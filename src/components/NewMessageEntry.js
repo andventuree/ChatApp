@@ -1,24 +1,26 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Button, Form } from "semantic-ui-react";
 import { writeMessage, postMessage } from "../store";
 
 function NewMessageEntry(props) {
   const { username, newMessage, handleChange, handleSubmit } = props;
   return (
-    <form onSubmit={event => handleSubmit(username, newMessage, event)}>
+    <Form onSubmit={event => handleSubmit(username, newMessage, event)}>
       <div>
-        <input
-          type="text"
-          name="content"
-          value={newMessage}
-          onChange={handleChange}
-          placeholder="Type..."
-        />
-        <span>
-          <button type="submit">send icon</button>
-        </span>
+        <Form.Group>
+          <Form.Input
+            type="text"
+            name="content"
+            value={newMessage}
+            onChange={handleChange}
+            placeholder="Friendly message goes here..."
+            width={15}
+          />
+          <Button type="submit">Send</Button>
+        </Form.Group>
       </div>
-    </form>
+    </Form>
   );
 }
 

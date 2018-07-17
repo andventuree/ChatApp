@@ -1,13 +1,14 @@
 import React from "react";
 import { ChannelList } from "../components";
+import { Header } from "semantic-ui-react";
 
 export default function Sidebar() {
   return (
     <div>
-      <h3>
-        <div>Chat App</div>
-      </h3>
-      <h5>Channels</h5>
+      <div>
+        <Header as="h1">Chat App</Header>
+      </div>
+      <Header as="h3">Channels</Header>
       <ChannelList />
     </div>
   );

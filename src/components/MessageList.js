@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Message, NewMessageEntry } from "../components";
 import { changeCurrentChannel } from "../store";
+import { List, Segment } from "semantic-ui-react";
 
 class MessageList extends Component {
   componentDidMount() {
@@ -19,12 +20,13 @@ class MessageList extends Component {
     const { channelId, messages } = this.props;
     return (
       <div>
-        <ul>
-          <div>Plain text</div>
-          {messages.map(message => {
-            return <Message key={message.id} message={message} />;
-          })}
-        </ul>
+        <Segment>
+          <List>
+            {messages.map(message => {
+              return <Message key={message.id} message={message} />;
+            })}
+          </List>
+        </Segment>
         <NewMessageEntry channelId={channelId} />
       </div>
     );

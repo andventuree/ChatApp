@@ -1,29 +1,34 @@
 import React from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { List, Label, Segment } from "semantic-ui-react";
 
 function ChannelList(props) {
   const { channels, messages } = props;
 
   return (
-    <ul>
-      {channels.map(channel => {
-        return (
-          <li key={channel.id}>
-            <NavLink to={`/channels/${channel.id}`}>
-              <span>{channel.name}</span>
-              <span>
-                {
-                  messages.filter(message => {
-                    return message.channelId === channel.id;
-                  }).length
-                }
-              </span>
-            </NavLink>
-          </li>
-        );
-      })}
-    </ul>
+    <Segment>
+      <List selection>
+        {channels.map(channel => {
+          return (
+            <List.Item key={channel.id}>
+              <NavLink to={`/channels/${channel.id}`}>
+                <List.Content>
+                  {channel.name}
+                  <Label circular>
+                    {
+                      messages.filter(message => {
+                        return message.channelId === channel.id;
+                      }).length
+                    }
+                  </Label>
+                </List.Content>
+              </NavLink>
+            </List.Item>
+          );
+        })}
+      </List>
+    </Segment>
   );
 }
 

@@ -1,22 +1,31 @@
 import React from "react";
 import { connect } from "react-redux";
 import { authenticate } from "../store";
+import {
+  Button,
+  Form,
+  Grid,
+  Header,
+  Image,
+  Message,
+  Segment
+} from "semantic-ui-react";
 
 function AuthForm(props) {
   const { name, displayName, handleSubmit, error } = props;
+
   return (
-    <div>
-      <form onSubmit={event => handleSubmit(event)} name={name}>
-        <div>
-          <label>Username</label>
-          <input name="username" type="text" />
-        </div>
-        <div>
-          <button type="submit">{displayName}</button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
-      </form>
-    </div>
+    <Grid textAlign="center" style={{ height: "100%" }} verticalAlign="middle">
+      <Grid.Column style={{ maxWidth: 450 }}>
+        <Form size="large" onSubmit={event => handleSubmit(event)} name={name}>
+          <Segment>
+            <Form.Input name="username" type="text" placeholder="username" />
+            <Button type="submit">{displayName}</Button>
+          </Segment>
+          {error && error.response && <div> {error.response.data} </div>}
+        </Form>
+      </Grid.Column>
+    </Grid>
   );
 }
 

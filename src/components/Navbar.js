@@ -1,14 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Header } from "semantic-ui-react";
 
 function Navbar(props) {
   const { currentChannel } = props;
-  console.log("currentChannel: ", currentChannel);
   return (
     <nav>
-      <h3>
-        {currentChannel === "" ? "Not in a channel" : currentChannel} space
-      </h3>
+      <Header as="h1">
+        {currentChannel === "" ? "Not in a channel" : currentChannel}
+      </Header>
     </nav>
   );
 }
