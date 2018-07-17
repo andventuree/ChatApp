@@ -10,15 +10,12 @@ router.get("/", (req, res, next) => {
 
 // POST /api/messages
 router.post("/", (req, res, next) => {
-  console.log("req.body: ", req.body);
   User.findOrCreate({
-    //findOrCreate
     where: {
-      username: req.body.username || "andrew"
+      username: req.body.username || "Guest"
     }
   })
     .spread(user => {
-      console.log("user: ", user);
       const message = Message.build(req.body);
       message.setUser(user, { save: false });
 
