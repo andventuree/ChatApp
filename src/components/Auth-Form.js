@@ -36,13 +36,14 @@ const mapSignup = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
+  console.log("ownProps: ", ownProps);
   return {
     handleSubmit(event) {
       event.preventDefault();
       const formName = event.target.name; //should return login or sign up
       const username = event.target.username.value;
-      dispatch(authenticate(username, formName));
+      dispatch(authenticate(username, formName, ownProps.history));
     }
   };
 };

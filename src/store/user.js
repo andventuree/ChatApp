@@ -14,7 +14,7 @@ const removeUser = () => {
   return { type: REMOVE_USER };
 };
 
-const me = () => async dispatch => {
+export const me = () => async dispatch => {
   try {
     const res = await axios.get("/auth/me");
     dispatch(getUser(res.data || defaultUser));
@@ -23,7 +23,7 @@ const me = () => async dispatch => {
   }
 };
 
-export const authenticate = (username, method) => async dispatch => {
+export const authenticate = (username, method, history) => async dispatch => {
   console.log("check out authenticate in store", username, method);
   let res;
   try {
@@ -35,17 +35,17 @@ export const authenticate = (username, method) => async dispatch => {
   }
   try {
     dispatch(getUser(res.data));
-    // history.push("/home"); //redirect after logging in
+    history.push("/channels/1"); //redirect after logging in
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr);
   }
 };
 
-export const logout = () => async dispatch => {
+export const logout = history => async dispatch => {
   try {
     await axios.post("/auth/logout");
     dispatch(removeUser());
-    // history.push("/login"); //necessary for redirect
+    history.push("/login"); //necessary for redirect
   } catch (err) {
     console.error(err);
   }
