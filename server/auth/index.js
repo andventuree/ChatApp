@@ -6,8 +6,10 @@ router.post("/login", async (req, res, next) => {
   const user = await User.findOne({ where: { username: req.body.username } });
   if (!user) {
     console.log("User not found: ", req.body.username);
-    res.status(401).send("Wrong username and/or password");
+    res.status(401).send("User not found, consider signing up");
   } else {
+    // user.lastLogin = new Date(); //should only add change this when a user logs out
+    // console.log(user);
     res.json(user);
   }
 });
@@ -25,8 +27,15 @@ router.post("/signup", async (req, res, next) => {
   }
 });
 
-router.post("/logout", (req, res) => {
-  //Log out incomplete
+router.post("/logout", async (req, res, next) => {
+  let currentDate = new Date();
+  await User.update(
+    { lastLogin: currentDate },
+    { where: { username: req.body.username } }
+  )
+    .then(() => console.log("User's lastLogin updated"))
+    .catch(next);
+
   res.redirect("/login");
 });
 

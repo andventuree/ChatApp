@@ -39,11 +39,13 @@ export const authenticate = (username, method, history) => async dispatch => {
   }
 };
 
-export const logout = history => async dispatch => {
+export const logout = (user, history) => async dispatch => {
+  console.log("user: ", user);
+
   try {
-    await axios.post("/auth/logout");
+    await axios.post("/auth/logout", user);
     dispatch(removeUser());
-    history.push("/login"); //necessary for redirect
+    // history.push("/login"); //necessary for redirect
   } catch (err) {
     console.error(err);
   }

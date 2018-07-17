@@ -7,4 +7,5 @@ export { default as MessageList } from "./MessageList";
 export { default as Message } from "./Message";
 export { default as NewMessageEntry } from "./NewMessageEntry";
 export { default as NewChannelEntry } from "./NewChannelEntry";
+export { default as LogOut } from "./LogOut";
 export { Login, Signup } from "./Auth-Form";
