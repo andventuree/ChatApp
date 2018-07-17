@@ -32,10 +32,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    handleChange(event) {
+    handleChange: function(event) {
       dispatch(writeMessage(event.target.value));
     },
-    handleSubmit(username, content, event) {
+    handleSubmit: function(username, content, event) {
       event.preventDefault();
       const { channelId } = ownProps;
       dispatch(postMessage({ username: "andrew", content, channelId }));
