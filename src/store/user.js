@@ -24,7 +24,6 @@ export const me = () => async dispatch => {
 };
 
 export const authenticate = (username, method, history) => async dispatch => {
-  console.log("check out authenticate in store", username, method);
   let res;
   try {
     res = await axios.post(`/auth/${method}`, {

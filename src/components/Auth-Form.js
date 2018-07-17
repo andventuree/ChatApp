@@ -37,7 +37,6 @@ const mapSignup = state => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  console.log("ownProps: ", ownProps);
   return {
     handleSubmit(event) {
       event.preventDefault();

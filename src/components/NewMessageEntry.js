@@ -4,7 +4,6 @@ import { writeMessage, postMessage } from "../store";
 
 function NewMessageEntry(props) {
   const { username, newMessage, handleChange, handleSubmit } = props;
-
   return (
     <form onSubmit={event => handleSubmit(username, newMessage, event)}>
       <div>
@@ -26,7 +25,7 @@ function NewMessageEntry(props) {
 const mapStateToProps = state => {
   return {
     newMessage: state.newMessage,
-    username: state.username
+    username: state.user.username
   };
 };
 
@@ -38,7 +37,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     handleSubmit: function(username, content, event) {
       event.preventDefault();
       const { channelId } = ownProps;
-      dispatch(postMessage({ username: "andrew", content, channelId }));
+      dispatch(postMessage({ username, content, channelId }));
       dispatch(writeMessage(""));
     }
   };
