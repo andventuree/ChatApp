@@ -14,8 +14,8 @@ Back-end: Node.js, Express, Sequelize, PostgreSQL
 ## Running App Locally
 
 1.  `npm install` dependencies
-2.  Now you'll need to create a db in PostgreSQL so run `createdb chatapp`
-3.  Have PostgreSQL running.
+2.  Have PostgreSQL running.
+3.  Now you'll need to create a db in PostgreSQL so run `createdb chatapp`
 4.  With this, you should be all set. `npm run start`
 
 ## Screenshots
