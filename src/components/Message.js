@@ -2,11 +2,17 @@ import React from "react";
 import { TimeStamp } from "../components";
 
 export default function Message(props) {
-  const message = props.message;
+  const { message, user } = props;
+  let newMessageColor = "";
   const isoTime = new Date(message.createdAt);
+  let userLastLoginTime = new Date(user.lastLogin);
+  if (isoTime.getTime() > userLastLoginTime.getTime()) {
+    newMessageColor = "teal";
+  }
+
   return (
     <li>
-      <div className="ui segment">
+      <div className={`ui ${newMessageColor} message`}>
         <div className="ui items">
           <div className="item">
             <div className="ui tiny image circular">
@@ -15,9 +21,7 @@ export default function Message(props) {
 
             <div className="content">
               <b>{message.user.username}</b> - <TimeStamp isoTime={isoTime} />
-              <div className="description">
-                <p>{message.content}</p>
-              </div>
+              <p className="message-bubble">{message.content}</p>
             </div>
           </div>
         </div>

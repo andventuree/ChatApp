@@ -14,7 +14,7 @@ function MessageBadge(props) {
   return (
     <React.Fragment>
       {messageCount > 0 ? (
-        <div class="ui teal left pointing label">{messageCount}</div>
+        <div className="ui teal left pointing label">{messageCount}</div>
       ) : null}
     </React.Fragment>
   );

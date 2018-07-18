@@ -16,13 +16,13 @@ class MessageList extends Component {
   }
 
   render() {
-    const { channelId, messages } = this.props;
+    const { channelId, messages, user } = this.props;
     return (
       <React.Fragment>
         <div className="messages-body">
           <ul className="message-list">
             {messages.map(message => (
-              <Message key={message.id} message={message} />
+              <Message key={message.id} message={message} user={user} />
             ))}
           </ul>
         </div>

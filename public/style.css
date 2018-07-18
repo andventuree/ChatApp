@@ -29,6 +29,15 @@ li {
 
 .ui.segment {
   margin: 0 0.5em;
+  max-width: 82vw;
+}
+
+.message-bubble {
+  white-space: pre-wrap; /* Webkit */
+  white-space: -moz-pre-wrap; /* Firefox */
+  white-space: -pre-wrap; /* Opera <7 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* IE */
 }
 
 .sidebar-header {
