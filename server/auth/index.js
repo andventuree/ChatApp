@@ -28,6 +28,7 @@ router.post("/signup", async (req, res, next) => {
 
 router.post("/logout", async (req, res, next) => {
   let currentDate = new Date();
+
   await User.update(
     { lastLogin: currentDate },
     { where: { username: req.body.username } }
