@@ -1,24 +1,35 @@
 import React from "react";
 import { connect } from "react-redux";
 import { authenticate } from "../store";
-import { Button, Form, Grid, Segment } from "semantic-ui-react";
+import { NavLink } from "react-router-dom";
 
 function AuthForm(props) {
   const { name, displayName, handleSubmit, error } = props;
+  let altPath = displayName === "Login" ? "signup" : "login";
 
   return (
-    <Grid textAlign="center" style={{ height: "100%" }} verticalAlign="middle">
-      <Grid.Column style={{ maxWidth: 450 }}>
-        <Form size="large" onSubmit={event => handleSubmit(event)} name={name}>
-          <Segment>
-            <h1>Come on in, join a conversation</h1>
-            <Form.Input name="username" type="text" placeholder="username" />
-            <Button type="submit">{displayName}</Button>
-          </Segment>
-          {error && error.response && <div> {error.response.data} </div>}
-        </Form>
-      </Grid.Column>
-    </Grid>
+    <div className="ui middle aligned center aligned grid">
+      <div className="column">
+        <form size="large" onSubmit={event => handleSubmit(event)} name={name}>
+          <div className="ui segment">
+            <img src="/img/Chat-App-Logo.png" />
+            <div className="ui action input message-input">
+              <input name="username" type="text" placeholder="username" />
+              <button className="ui teal button" type="submit">
+                {displayName}
+              </button>
+            </div>
+            {error &&
+              error.response && (
+                <div className="login-error-msg">
+                  <div>{error.response.data}</div>
+                  <NavLink to={`/${altPath}`}>Try {altPath}</NavLink>
+                </div>
+              )}
+          </div>
+        </form>
+      </div>
+    </div>
   );
 }
 

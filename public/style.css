@@ -18,6 +18,18 @@ li {
   list-style-type: none;
 }
 
+.login-error-msg {
+  padding: 1em;
+}
+
+.grid {
+  height: 100%;
+}
+
+.column {
+  max-width: 450px;
+}
+
 .app-layout {
   display: grid;
   height: 100vh;

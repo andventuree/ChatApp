@@ -45,7 +45,6 @@ export const logout = (user, history) => async dispatch => {
   try {
     await axios.post("/auth/logout", user);
     dispatch(removeUser());
-    // history.push("/login"); //necessary for redirect
   } catch (err) {
     console.error(err);
   }

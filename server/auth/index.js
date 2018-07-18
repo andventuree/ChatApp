@@ -7,7 +7,7 @@ router.post("/login", async (req, res, next) => {
 
   if (!user) {
     console.log("User not found: ", req.body.username);
-    res.status(401).send("User not found, consider signing up");
+    res.status(401).send("User not found");
   } else {
     res.json(user);
   }
