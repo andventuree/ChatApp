@@ -1,6 +1,6 @@
 # Welcome to "Chat App"
 
-Looking to chat with communities?
+Looking to chat with communities? [Deployed Link](http://aw-chat-app.heroko-app.com/)
 
 Look no further! With Chat App, you can join channels or create your own! Implemented with Web Sockets, you'll get update notifications in real time!
 
@@ -13,7 +13,9 @@ Back-end: Node.js, Express, Sequelize, PostgreSQL
 
 ## Running App Locally
 
-To be deployed!
+1.  `npm install` to install all dependencies
+2.  Now you'll need to create a db so run `createdb chatapp`
+3.  With this, you should be all set. `npm run start`
 
 ## Screenshots
 
