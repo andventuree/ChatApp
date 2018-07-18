@@ -16,8 +16,7 @@ class MessageList extends Component {
   }
 
   render() {
-    const { channelId, messages, user } = this.props;
-    let lastLogin = new Date(user.lastLogin).getTime();
+    const { channelId, messages } = this.props;
     return (
       <React.Fragment>
         <div className="messages-body">
@@ -32,12 +31,6 @@ class MessageList extends Component {
     );
   }
 }
-
-// <React.Fragment key={message.id}>
-//   {new Date(message.createdAt).getTime() > lastLogin ? (
-//     <span>----------------------</span>
-//   ) : null}
-// </React.Fragment>;
 
 const mapStateToProps = function(state, ownProps) {
   const channelId = Number(ownProps.match.params.channelId);

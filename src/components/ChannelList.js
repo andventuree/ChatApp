@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { MessageBadge } from "../components";
 
 function ChannelList(props) {
-  const { channels, messages } = props;
+  const { channels } = props;
 
   return (
     <div className="channels-body">
@@ -15,13 +16,7 @@ function ChannelList(props) {
               <NavLink to={`/channels/${channel.id}`}>
                 <div>
                   # {channel.name}
-                  <div class="ui teal left pointing label">
-                    {
-                      messages.filter(message => {
-                        return message.channelId === channel.id;
-                      }).length
-                    }
-                  </div>
+                  <MessageBadge channelId={channel.id} />
                 </div>
               </NavLink>
             </li>
@@ -37,7 +32,6 @@ function ChannelList(props) {
 // <div className="ui vertical menu">
 const mapStateToProps = state => {
   return {
-    messages: state.messages,
     channels: state.channels
   };
 };
