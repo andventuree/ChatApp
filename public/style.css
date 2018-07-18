@@ -56,16 +56,18 @@ li {
   grid-row: 2;
   padding: 1em 0;
   height: 80vh;
+  border-bottom: 2px solid #f2f2f2;
   /* overflow-y: scroll; */
 }
 
 .channel-list li {
-  padding: 0.03em;
+  padding: 0.05em;
 }
 
 .logout {
   grid-column: 1;
   grid-row: 3;
+  padding: 1.5em 1em 0 1em;
 }
 
 .single-channel-header {
@@ -96,11 +98,12 @@ li {
   padding: 0 1em;
   overflow-y: scroll;
   height: 80vh;
+  border-bottom: 2px solid #f2f2f2;
 }
 
 .message-input {
   grid-column: 2;
   grid-row: 3;
   width: 100%;
-  padding: 1em;
+  padding: 1.5em 1em 0 1em;
 }
