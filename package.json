@@ -7,7 +7,7 @@
     "start": "webpack-cli -w --mode development & nodemon server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "seed": "node script/seed.js",
-    "deploy": "script/deploy"
+    "deploy": "bash script/deploy"
   },
   "author": "",
   "license": "ISC",
