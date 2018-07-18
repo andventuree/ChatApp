@@ -1,6 +1,6 @@
 # Welcome to "Chat App"
 
-Looking to chat with communities? [Deployed Link](http://aw-chat-app.herokoapp.com/)
+Looking to chat with communities? [Deployed Link](http://aw-chat-app.herokuapp.com/)
 
 Look no further! With Chat App, you can join channels or create your own! Implemented with Web Sockets, you'll get update notifications in real time!
 
