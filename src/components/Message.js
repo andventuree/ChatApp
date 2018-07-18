@@ -6,10 +6,22 @@ export default function Message(props) {
   const isoTime = new Date(message.createdAt);
   return (
     <li>
-      {message.user.username} - <TimeStamp isoTime={isoTime} />
-      <span>{message.content}</span>
+      <div className="ui segment">
+        <div className="ui items">
+          <div className="item">
+            <div className="ui tiny image circular">
+              <img src={message.user.image} />
+            </div>
+
+            <div className="content">
+              <b>{message.user.username}</b> - <TimeStamp isoTime={isoTime} />
+              <div className="description">
+                <p>{message.content}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </li>
   );
 }
-
-// <Image size="tiny" circular src={message.user.image} />

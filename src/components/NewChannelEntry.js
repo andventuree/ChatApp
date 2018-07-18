@@ -7,15 +7,18 @@ function NewChannelEntry(props) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>Start a new channel</label>
-      <input
-        value={newChannelEntry}
-        onChange={handleChange}
-        type="text"
-        name="channelName"
-        placeholder="Enter channel name"
-      />
-      <button type="submit">Create</button>
+      <div className="ui action input message-input">
+        <input
+          value={newChannelEntry}
+          onChange={handleChange}
+          type="text"
+          name="channelName"
+          placeholder="Name this new channel"
+        />
+        <button className="ui button" type="submit">
+          Create
+        </button>
+      </div>
     </form>
   );
 }

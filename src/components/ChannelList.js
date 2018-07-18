@@ -6,21 +6,22 @@ function ChannelList(props) {
   const { channels, messages } = props;
 
   return (
-    <div>
-      <ul className="box">
+    <div className="channels-body">
+      <h3 className="menu-header">Channels</h3>
+      <ul className="channel-list">
         {channels.map(channel => {
           return (
             <li key={channel.id}>
               <NavLink to={`/channels/${channel.id}`}>
                 <div>
-                  {channel.name}
-                  <span>
+                  # {channel.name}
+                  <div class="ui teal left pointing label">
                     {
                       messages.filter(message => {
                         return message.channelId === channel.id;
                       }).length
                     }
-                  </span>
+                  </div>
                 </div>
               </NavLink>
             </li>
@@ -33,7 +34,7 @@ function ChannelList(props) {
     </div>
   );
 }
-
+// <div className="ui vertical menu">
 const mapStateToProps = state => {
   return {
     messages: state.messages,

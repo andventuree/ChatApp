@@ -20,7 +20,7 @@ class MessageList extends Component {
     let lastLogin = new Date(user.lastLogin).getTime();
     return (
       <React.Fragment>
-        <div className="messages box">
+        <div className="messages-body">
           <ul className="message-list">
             {messages.map(message => (
               <Message key={message.id} message={message} />

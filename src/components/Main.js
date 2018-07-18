@@ -12,10 +12,9 @@ class Main extends Component {
 
   render() {
     return (
-      <div className="app-layout">
-        <div className="teams box">Teams</div>
+      <div className="app-layout ">
         <Sidebar />
-        <main>
+        <main className="ui segment">
           <Navbar />
           <Switch>
             <Route path="/new-channel" component={NewChannelEntry} />

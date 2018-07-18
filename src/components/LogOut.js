@@ -5,7 +5,11 @@ import { logout } from "../store";
 function LogOut(props) {
   const { user, handleClick } = props;
   return (
-    <button onClick={() => handleClick(user)}>Log out {user.username}</button>
+    <div className="logout box">
+      <button className="ui red button" onClick={() => handleClick(user)}>
+        Log out {user.username}
+      </button>
+    </div>
   );
 }
 

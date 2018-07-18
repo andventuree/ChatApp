@@ -5,8 +5,8 @@ import { writeMessage, postMessage } from "../store";
 function NewMessageEntry(props) {
   const { username, newMessage, handleChange, handleSubmit } = props;
   return (
-    <div className="input box">
-      <form onSubmit={event => handleSubmit(username, newMessage, event)}>
+    <form onSubmit={event => handleSubmit(username, newMessage, event)}>
+      <div className="ui action input message-input">
         <input
           type="text"
           name="content"
@@ -15,9 +15,11 @@ function NewMessageEntry(props) {
           placeholder="Friendly message goes here..."
           width={15}
         />
-        <button type="submit">Send</button>
-      </form>
-    </div>
+        <button className="ui button" type="submit">
+          Send
+        </button>
+      </div>
+    </form>
   );
 }
 

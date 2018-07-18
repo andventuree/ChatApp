@@ -1,13 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { LogOut } from "../components";
 
 function Navbar(props) {
   const { currentChannel } = props;
   return (
-    <div className="header box">
-      {currentChannel}
-      <LogOut />
+    <div className="single-channel-header ">
+      <h1># {currentChannel}</h1>
     </div>
   );
 }
