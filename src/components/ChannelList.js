@@ -29,7 +29,7 @@ function ChannelList(props) {
     </div>
   );
 }
-// <div className="ui vertical menu">
+
 const mapStateToProps = state => {
   return {
     channels: state.channels
