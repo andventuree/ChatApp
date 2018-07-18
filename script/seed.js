@@ -1,7 +1,5 @@
-const db = require("./server/db");
-const User = require("./server/db/models/user");
-const Message = require("./server/db/models/message");
-const Channel = require("./server/db/models/channel");
+const db = require("../server/db");
+const { User, Message, Channel } = require("../server/db/models");
 
 Channel.hasMany(Message, {
   onDelete: "cascade",
