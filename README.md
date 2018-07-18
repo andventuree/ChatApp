@@ -8,7 +8,8 @@ App features: Sign up with just a user name (no pesky passwords), send messages,
 
 ## About
 
-- "Chat app" built on the front-end with React and Redux to create UI views and uses CSS Grid and Semantic-UI for styling. On the back-end, Node is used along with Express for routing and Sequelize and PostgreSQL for database.
+Front-end: React, Redux, Webpack, CSS Grid, Semantic UI, Socket.io
+Back-end: Node.js, Express, Sequelize, PostgreSQL
 
 ## Running App Locally
 
