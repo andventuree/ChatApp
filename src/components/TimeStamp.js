@@ -7,5 +7,5 @@ export default function TimeStamp(props) {
   let afternoon = hours > 12 ? "PM" : "AM";
   hours = hours % 12;
 
-  return <span>{`${hours}:${minutes} ${afternoon}`}</span>;
+  return <span className="date">{`${hours}:${minutes} ${afternoon}`}</span>;
 }

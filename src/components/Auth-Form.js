@@ -1,15 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { authenticate } from "../store";
-import {
-  Button,
-  Form,
-  Grid,
-  Header,
-  Image,
-  Message,
-  Segment
-} from "semantic-ui-react";
+import { Button, Form, Grid, Segment } from "semantic-ui-react";
 
 function AuthForm(props) {
   const { name, displayName, handleSubmit, error } = props;
@@ -19,6 +11,7 @@ function AuthForm(props) {
       <Grid.Column style={{ maxWidth: 450 }}>
         <Form size="large" onSubmit={event => handleSubmit(event)} name={name}>
           <Segment>
+            <h1>Come on in, join a conversation</h1>
             <Form.Input name="username" type="text" placeholder="username" />
             <Button type="submit">{displayName}</Button>
           </Segment>

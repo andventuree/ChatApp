@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Message, NewMessageEntry } from "../components";
 import { changeCurrentChannel } from "../store";
-import { List, Segment } from "semantic-ui-react";
 
 class MessageList extends Component {
   componentDidMount() {
@@ -20,26 +19,25 @@ class MessageList extends Component {
     const { channelId, messages, user } = this.props;
     let lastLogin = new Date(user.lastLogin).getTime();
     return (
-      <div>
-        <Segment>
-          <List>
-            {messages.map(message => {
-              return (
-                <React.Fragment>
-                  {new Date(message.createdAt).getTime() > lastLogin ? (
-                    <span>----------------------</span>
-                  ) : null}
-                  <Message key={message.id} message={message} />
-                </React.Fragment>
-              );
-            })}
-          </List>
-        </Segment>
+      <React.Fragment>
+        <div className="messages box">
+          <ul className="message-list">
+            {messages.map(message => (
+              <Message key={message.id} message={message} />
+            ))}
+          </ul>
+        </div>
         <NewMessageEntry channelId={channelId} />
-      </div>
+      </React.Fragment>
     );
   }
 }
+
+// <React.Fragment key={message.id}>
+//   {new Date(message.createdAt).getTime() > lastLogin ? (
+//     <span>----------------------</span>
+//   ) : null}
+// </React.Fragment>;
 
 const mapStateToProps = function(state, ownProps) {
   const channelId = Number(ownProps.match.params.channelId);

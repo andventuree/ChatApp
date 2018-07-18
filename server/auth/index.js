@@ -4,6 +4,7 @@ const { User } = require("../db/models");
 //local sign up and login
 router.post("/login", async (req, res, next) => {
   const user = await User.findOne({ where: { username: req.body.username } });
+
   if (!user) {
     console.log("User not found: ", req.body.username);
     res.status(401).send("User not found, consider signing up");
