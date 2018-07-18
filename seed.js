@@ -21,15 +21,17 @@ const cartoonProfiles = [
   "https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/male/102.png",
   "https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/male/21.png"
 ];
-
+// "2018-07-16T18:28:35.161Z"
 const users = [
   {
     username: "andrew",
-    image: cartoonProfiles[2]
+    image: cartoonProfiles[2],
+    lastLogin: new Date("2018-07-16T18:28:35.161Z")
   },
   {
     username: "zhuling",
-    image: cartoonProfiles[0]
+    image: cartoonProfiles[0],
+    lastLogin: new Date()
   },
   {
     username: "charlie",
@@ -38,33 +40,61 @@ const users = [
 ];
 
 const channels = [
-  { name: "random" },
-  { name: "lit_chat" },
-  { name: "memes_galore" },
-  { name: "doggo_appreciation" }
+  { name: "Litt Web Dev" },
+  { name: "Doggo Appreciation" },
+  { name: "Quotes" }
 ];
 
 const id = () => Math.round(Math.random() * (users.length - 1)) + 1;
 
 const messages = [
-  { userId: id(), content: "panda_panda", channelId: 0 },
-  { userId: id(), content: "EDM", channelId: 1 },
-  { userId: id(), content: "xyz comment", channelId: 1 },
-  { userId: id(), content: "Web Apps R Us!", channelId: 2 },
-  { userId: id(), content: "JavaScript!", channelId: 2 },
-  { userId: id(), content: "Gah Gah", channelId: 2 },
-  { userId: id(), content: "Not bad", channelId: 3 },
-  { userId: id(), content: "Stoooop", channelId: 3 },
-  { userId: id(), content: "Aint no body got time", channelId: 3 },
-  { userId: id(), content: "Corgis", channelId: 4 },
-  { userId: id(), content: "Shizhu", channelId: 4 },
-  { userId: id(), content: "Frenchie", channelId: 4 }
+  {
+    userId: id(),
+    content: "I've a great web site name, Web Apps R Us!",
+    channelId: 1,
+    createdAt: new Date("2018-07-15T18:28:35.161Z")
+  },
+  {
+    userId: id(),
+    content: "Stooooooop",
+    channelId: 1,
+    createdAt: new Date("2018-07-15T18:28:35.161Z")
+  },
+  {
+    userId: id(),
+    content: "Not bad",
+    channelId: 1,
+    createdAt: new Date("2018-07-15T18:28:35.161Z")
+  },
+  {
+    userId: id(),
+    content: "JavaScript is where its at!",
+    channelId: 1,
+    createdAt: new Date("2018-07-15T18:28:35.161Z")
+  },
+  { userId: id(), content: "Aint no body got time", channelId: 1 },
+  { userId: id(), content: "Litt Litt ", channelId: 1 },
+  { userId: id(), content: "Litt Litt Litt Litt ", channelId: 1 },
+  {
+    userId: id(),
+    content: "Corgis are the best",
+    channelId: 2,
+    createdAt: new Date("2018-07-15T18:28:35.161Z")
+  },
+  { userId: id(), content: "Shizhu are my favorite", channelId: 2 },
+  { userId: id(), content: "Frenchie? you mean cutie :P", channelId: 2 },
+  {
+    userId: id(),
+    content: "Everyone sees but not everyone notices",
+    channelId: 3,
+    createdAt: new Date("2018-07-15T18:28:35.161Z")
+  }
 ];
 
-const seed = () => {
-  Promise.all(users.map(user => User.create(user)));
-  Promise.all(channels.map(channel => Channel.create(channel)));
-  Promise.all(messages.map(message => Message.create(message)));
+const seed = async () => {
+  await Promise.all(users.map(user => User.create(user)));
+  await Promise.all(channels.map(channel => Channel.create(channel)));
+  await Promise.all(messages.map(message => Message.create(message)));
 };
 
 const main = () => {
@@ -77,11 +107,11 @@ const main = () => {
     .catch(err => {
       console.log("Error during seeding");
       console.log(err.stack);
+    })
+    .then(() => {
+      db.close();
+      return null;
     });
-  // .then(() => {
-  //   db.close();
-  //   return null;
-  // });
 };
 
 main();
