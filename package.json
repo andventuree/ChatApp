@@ -7,7 +7,8 @@
   },
   "main": "./src/index.js",
   "scripts": {
-    "start": "webpack-cli -w --mode development & nodemon server",
+    "start": "node server",
+    "start-dev": "webpack-cli -w --mode development & nodemon server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "seed": "node script/seed.js",
     "deploy": "bash script/deploy"
@@ -29,6 +30,7 @@
     "crypto": "^1.0.1",
     "express": "^4.16.3",
     "morgan": "^1.9.0",
+    "nodemon": "^1.18.3",
     "pg": "^7.4.3",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
