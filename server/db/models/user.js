@@ -25,7 +25,10 @@ const User = db.define("user", {
     }
   },
   lastLogin: {
-    type: Sequelize.DATE
+    type: Sequelize.DATE,
+    defaultValue: function() {
+      return new Date();
+    }
   }
 });
 

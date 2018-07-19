@@ -19,17 +19,17 @@ const cartoonProfiles = [
   "https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/male/102.png",
   "https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/male/21.png"
 ];
-// "2018-07-16T18:28:35.161Z"
+
 const users = [
   {
-    username: "andrew",
-    image: cartoonProfiles[2],
+    username: "guest",
+    image: cartoonProfiles[0],
     lastLogin: new Date("2018-07-16T18:28:35.161Z")
   },
   {
-    username: "zhuling",
-    image: cartoonProfiles[0],
-    lastLogin: new Date()
+    username: "andrew",
+    image: cartoonProfiles[2],
+    lastLogin: new Date("2018-07-14T18:28:35.161Z")
   },
   {
     username: "charlie",
