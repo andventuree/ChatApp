@@ -27,7 +27,8 @@ const getRandomImg = () =>
 const User = db.define("user", {
   username: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    unique: true
   },
   image: {
     type: Sequelize.STRING,
@@ -40,6 +41,10 @@ const User = db.define("user", {
     defaultValue: function() {
       return new Date();
     }
+  },
+  isAdmin: {
+    type: Sequelize.STRING,
+    defaultValue: false
   }
 });
 

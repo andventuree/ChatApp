@@ -16,7 +16,10 @@ require("../secrets");
 const io = require("socket.io")(server);
 require("./socket")(io); // Takes in server and handle socket events
 
-passport.serializeUser((user, done) => done(null, user.id));
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
 passport.deserializeUser(async (id, done) => {
   //to decrypt cookie
   try {
