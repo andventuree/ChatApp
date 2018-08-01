@@ -22,4 +22,5 @@ function Sidebar(props) {
 const mapStateToProps = state => {
   return { user: state.user };
 };
+
 export default connect(mapStateToProps)(Sidebar);

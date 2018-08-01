@@ -40,7 +40,8 @@ const users = [
 const channels = [
   { name: "Litt Web Dev" },
   { name: "Doggo Appreciation" },
-  { name: "Quotes" }
+  { name: "Quotes" },
+  { name: "Noms" }
 ];
 
 const id = () => Math.round(Math.random() * (users.length - 1)) + 1;

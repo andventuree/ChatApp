@@ -11,23 +11,26 @@ class App extends Component {
 
   render() {
     const { isLoggedIn } = this.props;
+    console.log("isLoggedIn: ", isLoggedIn);
     return (
       <div>
         <Switch>
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           {isLoggedIn && <Route path="/" component={Main} />}
-          <Redirect to="/login" />
         </Switch>
       </div>
     );
   }
 }
 
+// <Redirect to="/login" />
+
 const mapStateToProps = state => {
   return {
     //coerce user obj to bool
     isLoggedIn: !!state.user.id
+    //will initially return false to begin with b/c loading
   };
 };
 

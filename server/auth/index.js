@@ -9,14 +9,15 @@ router.post("/login", async (req, res, next) => {
     console.log("User not found: ", req.body.username);
     res.status(401).send("User not found");
   } else {
-    res.json(user);
+    //req.login posts session to DB
+    req.login(user, err => (err ? next(err) : res.json(user)));
   }
 });
 
 router.post("/signup", async (req, res, next) => {
   try {
     const user = await User.create(req.body);
-    res.json(user);
+    req.login(user, err => (err ? next(err) : res.json(user)));
   } catch (err) {
     if (err.name === "SequelizeUniqueConstraintError") {
       res.status(401).send("User already exists");
@@ -36,6 +37,9 @@ router.post("/logout", async (req, res, next) => {
     .then(() => console.log("User's lastLogin updated"))
     .catch(next);
 
+  // Invoking logout() will remove the req.user property and clear the login session (if any).
+  req.logout();
+  req.session.destroy();
   res.redirect("/login");
 });
 
