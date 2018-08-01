@@ -19,7 +19,7 @@ li {
 }
 
 .login-error-msg {
-  padding: 1em;
+  padding: 1em 0 0 0;
 }
 
 .grid {
@@ -39,9 +39,12 @@ li {
   overflow: hidden;
 }
 
-.ui.segment {
-  margin: 0 0.5em;
-  max-width: 82vw;
+.ui.segment:first-child {
+  margin: 0;
+}
+
+.ui.segment.app-body {
+  margin: 0 0 0 0.5em;
 }
 
 .message-bubble {

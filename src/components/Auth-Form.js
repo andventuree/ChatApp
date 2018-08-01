@@ -19,15 +19,24 @@ function AuthForm(props) {
                 {displayName}
               </button>
             </div>
-            {error &&
-              error.response && (
-                <div className="login-error-msg">
-                  <div>{error.response.data}</div>
-                  <NavLink to={`/${altPath}`}>Try {altPath}</NavLink>
-                </div>
-              )}
+            {error && error.response && displayName === "Login" ? (
+              <div className="login-error-msg">{error.response.data}</div>
+            ) : null}
           </div>
         </form>
+        <div className="ui segment login">
+          {displayName === "Login" ? (
+            <div>
+              New to us?
+              <NavLink to={`/${altPath}`}> Sign Up</NavLink>
+            </div>
+          ) : (
+            <div>
+              Already have a user?
+              <NavLink to={`/${altPath}`}> Login </NavLink>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
