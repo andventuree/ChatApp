@@ -139,169 +139,141 @@ const id = () => Math.round(Math.random() * (users.length - 1)) + 1;
 const messages = [
   {
     content: "I've a great web site name, Web Apps R Us!",
-    createdAt: new Date("2018-07-15 18:28:35.161+00"),
     channelId: 1,
     userId: 2
   },
   {
     content: "Stooooooop",
-    createdAt: new Date("2018-07-15 18:28:35.161+00"),
     channelId: 1,
     userId: 2
   },
   {
     content: "Not bad",
-    createdAt: new Date("2018-07-15 18:28:35.161+00"),
     channelId: 1,
     userId: 1
   },
   {
     content: "JavaScript is where its at!",
-    createdAt: new Date("2018-07-15 18:28:35.161+00"),
     channelId: 1,
     userId: 2
   },
   {
     content: "Aint no body got time",
-    createdAt: new Date("2018-07-19 03:00:52.938+00"),
     channelId: 1,
     userId: 3
   },
   {
     content: "Litt Litt ",
-    createdAt: new Date("2018-07-19 03:00:52.938+00"),
     channelId: 1,
     userId: 3
   },
   {
     content: "Litt Litt Litt Litt ",
-    createdAt: new Date("2018-07-19 03:00:52.939+00"),
     channelId: 1,
     userId: 1
   },
   {
     content: "Corgis are the best",
-    createdAt: new Date("2018-07-15 18:28:35.161+00"),
     channelId: 2,
     userId: 2
   },
   {
     content: "Shihtzu are my favorite",
-    createdAt: new Date("2018-07-19 03:00:52.939+00"),
     channelId: 2,
     userId: 2
   },
   {
     content: "Frenchie? you mean cutie :P",
-    createdAt: new Date("2018-07-19 03:00:52.939+00"),
     channelId: 2,
     userId: 2
   },
   {
     content: "Everyone sees but not everyone notices",
-    createdAt: new Date("2018-07-15 18:28:35.161+00"),
     channelId: 3,
     userId: 1
   },
   {
     content: "oh hayy",
-    createdAt: new Date("2018-07-19 03:13:16.813+00"),
     channelId: 1,
     userId: 4
   },
   {
     content: "Good Morning",
-    createdAt: new Date("2018-07-19 03:22:25.437+00"),
     channelId: 1,
     userId: 5
   },
   {
     content: "🔥 ",
-    createdAt: new Date("2018-07-19 03:23:54.744+00"),
     channelId: 1,
     userId: 6
   },
   {
     content: "👋 ",
-    createdAt: new Date("2018-07-19 03:39:33.578+00"),
     channelId: 1,
     userId: 7
   },
   {
     content: "shiba inus!!!",
-    createdAt: new Date("2018-07-19 03:40:12.488+00"),
     channelId: 2,
     userId: 8
   },
   {
     content: "andrew is my fave",
-    createdAt: new Date("2018-07-19 03:40:14.06+00"),
     channelId: 1,
     userId: 9
   },
   {
     content: "Pitbulls are rad!",
-    createdAt: new Date("2018-07-19 06:02:27.655+00"),
     channelId: 2,
     userId: 10
   },
   {
     content: "Pugs pugs pugs",
-    createdAt: new Date("2018-07-19 06:02:54.092+00"),
     channelId: 2,
     userId: 11
   },
   {
     content: "Eat your vegetables",
-    createdAt: new Date("2018-07-19 06:03:52.213+00"),
     channelId: 3,
     userId: 12
   },
   {
     content: "I'm here for memes",
-    createdAt: new Date("2018-07-19 06:06:44.718+00"),
     channelId: 1,
     userId: 13
   },
   {
     content: "Hallllooo",
-    createdAt: new Date("2018-07-19 16:04:09.635+00"),
     channelId: 1,
     userId: 14
   },
   {
     content: "Wow I love this site ",
-    createdAt: new Date("2018-07-19 16:04:31.577+00"),
     channelId: 1,
     userId: 14
   },
   {
     content: "Looks great on mobile devices ",
-    createdAt: new Date("2018-07-19 16:04:41.183+00"),
     channelId: 1,
     userId: 14
   },
   {
     content: "SAMOYEDSDDD",
-    createdAt: new Date("2018-07-19 16:05:04.159+00"),
     channelId: 2,
     userId: 14
   },
   {
     content: "Boop",
-    createdAt: new Date("2018-07-19 16:06:07.341+00"),
     channelId: 1,
     userId: 15
   },
   {
     content: "Food is life",
-    createdAt: new Date("2018-07-19 16:07:04.734+00"),
     channelId: 4,
     userId: 15
   },
   {
     content: "Hi yo ",
-    createdAt: new Date("2018-07-31 21:22:53.368+00"),
     channelId: 2,
     userId: 12
   }
