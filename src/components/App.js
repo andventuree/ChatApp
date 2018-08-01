@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { me } from "../store";
 import { connect } from "react-redux";
-import { withRouter, Switch, Route, Redirect } from "react-router-dom";
+import { withRouter, Switch, Route } from "react-router-dom";
 import { Main, Login, Signup } from "../components";
 
 class App extends Component {
