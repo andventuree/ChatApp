@@ -23,8 +23,6 @@ class App extends Component {
   }
 }
 
-// <Redirect to="/login" />
-
 const mapStateToProps = state => {
   return {
     //coerce user obj to bool
