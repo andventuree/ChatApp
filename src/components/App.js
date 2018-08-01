@@ -14,6 +14,7 @@ class App extends Component {
     return (
       <div>
         <Switch>
+          <Route exact path="/" component={Login} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           {isLoggedIn && <Route path="/" component={Main} />}
