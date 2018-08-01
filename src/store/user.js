@@ -40,7 +40,8 @@ export const authenticate = (username, method, history) => async dispatch => {
 };
 
 export const logout = (user, history) => async dispatch => {
-  console.log("user: ", user);
+  console.log("dispatching logout action: ", user);
+  console.log("history: ", history);
 
   try {
     await axios.post("/auth/logout", user);

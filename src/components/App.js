@@ -11,7 +11,6 @@ class App extends Component {
 
   render() {
     const { isLoggedIn } = this.props;
-    console.log("isLoggedIn: ", isLoggedIn);
     return (
       <div>
         <Switch>
