@@ -13,6 +13,7 @@ Log in with "guest" to view the app or make your own username!
 App features: Sign up with just a user name (no pesky passwords), send messages, create channels
 
 Front-end: React, Redux, Webpack, CSS Grid, Semantic UI, Socket.io
+
 Back-end: Node.js, Express, Sequelize, PostgreSQL
 
 ## Running App Locally
